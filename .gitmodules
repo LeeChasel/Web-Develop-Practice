@@ -1,0 +1,3 @@
+[submodule "Laravel/laradock"]
+	path = Laravel/laradock
+	url = https://github.com/Laradock/laradock.git
