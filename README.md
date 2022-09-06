@@ -23,8 +23,10 @@ copy Album_web/.env.example to .env
 
 ## install npm and composer
 docker-compose up -d workspace
+
 docker-compose exec workspace bash
 
 ### in workspace container
 npm install
+
 composer install
