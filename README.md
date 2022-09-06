@@ -15,6 +15,8 @@ cd laradock/
 
 cp env-example .env
 
+change 'APP_CODE_PATH_HOST=../' to 'APP_CODE_PATH_HOST=../Laravel'
+
 cp -r nginx/sites/laravel.conf.example nginx/sites/laravel.test.conf
 
 in laravel.test.conf, edit `root /var/www/laravel/public` to `root /var/www/public`
