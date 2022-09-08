@@ -17,3 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::get('/api/get', function(Request $request) {
+//     return 999999;
+// });
+
