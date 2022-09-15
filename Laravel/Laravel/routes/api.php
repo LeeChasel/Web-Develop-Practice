@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-// use App\Http\Controllers;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -18,4 +18,4 @@ Route::middleware('auth:sanctum')->get('/users', function (Request $request) {
 });
 
 Route::get('temp', 'App\Http\Controllers\tempController@index');
-Route::post('ss', 'App\Http\Controllers\UsersController@index');
+// Route::post('ss', 'App\Http\Controllers\UsersController@index');
