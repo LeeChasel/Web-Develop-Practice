@@ -9,3 +9,4 @@ services:
       - .:/home/nextJs
     working_dir : /home/nextJs
     command: bash -c "npm run dev"
+    
