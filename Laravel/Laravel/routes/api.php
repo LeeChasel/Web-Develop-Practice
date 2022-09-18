@@ -18,7 +18,7 @@ Route::middleware('auth:sanctum')->get('/users', function (Request $request) {
 });
 
 Route::get('index', 'App\Http\Controllers\tempController@index');
-Route::get('show', 'App\Http\Controllers\tempController@show');
-Route::get('testModel', 'App\Http\Controllers\tempController@testModel');
-Route::get('addData', 'App\Http\Controllers\tempController@addData');
-Route::get('testCreate', 'App\Http\Controllers\tempController@testCreate');
+// Route::get('show', 'App\Http\Controllers\tempController@show');
+// Route::get('testModel', 'App\Http\Controllers\tempController@testModel');
+// Route::get('addData', 'App\Http\Controllers\tempController@addData');
+// Route::get('testCreate', 'App\Http\Controllers\tempController@testCreate');

@@ -10,8 +10,9 @@ class tempController extends Controller
 {
     public function index(Request $request)
     {
-            DB::insert('insert into news(title,description) values(?,?)', ['1','2']);
-            return 111;
+            // DB::insert('insert into news(title,description) values(?,?)', ['1','2']);
+            // return 111;
+        return 99999;
     }
 
     public function show()

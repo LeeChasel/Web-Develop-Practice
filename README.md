@@ -5,7 +5,9 @@ This is a website let you browse your images and videos in local machine folders
 ## Port
 `laravel home page : http://localhost:80`
 
-`phpmyadmin : http://localhost:8081`
+`nextJs home page : http://localhost:64550`
+
+`phpmyadmin login page : http://localhost:8081`
 
 ## How to clone
 `git clone --recursive https://github.com/LeeChasel/Album_web.git`
