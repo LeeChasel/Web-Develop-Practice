@@ -12,7 +12,13 @@ class tempController extends Controller
     {
             // DB::insert('insert into news(title,description) values(?,?)', ['1','2']);
             // return 111;
-        return "99999";
+        $res = ['name' => 'Chasel', 'state' => 'TW'];
+        // return response()->json_encode($res);
+        // return response()->json([
+        //     'name' => 'Abigail',
+        //     'state' => 'CA',
+        // ]);
+        return response()->json($res);
     }
 
     public function show()
