@@ -1,32 +1,22 @@
-    // export async function getStaticProps()
-    // {
-    //     // const res = await fetch('https://jsonplaceholder.typicode.com/todos/1');
-    //     const res = await fetch('http://localhost:80/api/index');
-    //     const data = await res.json();
-    //     return {
-    //         props: {
-    //             data,
-    //         },
-    //     };
-    // }
+import useSWR from 'swr';
 
+// https://jsonplaceholder.typicode.com/todos/1
 
-export default function Test_v2(props)
+const fetcher = (...args) => fetch(...args).then(res => res.json())
+
+export default function Test_v2()
 {
-    const a = fetch ("http://localhost:80/api/index")
-        .then(function(res) {
-            return res.json();
-        }).then(function(data) {
-            console.log(data);
-        }).catch (function(err) {
-            console.log(err);
-        });        
-    const r = JSON.stringify(a);
+
+    const { data, error } = useSWR('https://jsonplaceholder.typicode.com/todos/1', fetcher)
+    if (error) return <div>Failed to load</div>
+    if (!data) return <div>Loading</div>
+
     return (
-        <>
-            <h1 className="title">
-                {r}
+        <div>
+            <h1>
+            {data.name}
             </h1>
-        </>
+            <p>{data.bio}</p>
+        </div>
     );
 }

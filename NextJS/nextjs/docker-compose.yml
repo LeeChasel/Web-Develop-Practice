@@ -6,7 +6,6 @@ services:
     ports:
       - "64550:64550"
     volumes:
-      - .:/home/nextJs
-    working_dir : /home/nextJs
-    command: bash -c "npm run dev"
+      - .:/home/nextJs 
+    command: bash "/home/nextJs/nextjs_env.sh" 
     
