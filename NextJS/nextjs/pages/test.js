@@ -11,9 +11,9 @@
 
 // }
 
-export default function Test(props)
+function Test({data})
 {
-    console.log(props.data)
+    console.log(data)
     return (
         <>
 
@@ -24,3 +24,12 @@ export default function Test(props)
     );
 
 }
+
+export async function getServerSideProps()
+{
+    const res = await fetch('http://localhost:80/api/index');
+    const data = res.json();
+    return {props:{data}};
+}
+
+export default Test;

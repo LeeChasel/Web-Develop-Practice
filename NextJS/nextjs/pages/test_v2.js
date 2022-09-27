@@ -4,22 +4,13 @@ import useSWR from 'swr';
 
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
-
-export async function getServerSideProps()
-{
-    const res = await fetch("http://localhost:80/api/index");
-    const data = await res.json();
-
-    return {props:{data}};
-}
-
-export default function Test_v2({data})
+export default function Test_v2()
 {
 
-    // const { data, error } = useSWR('https://jsonplaceholder.typicode.com/todos/1', fetcher)
-    // if (error) return <div>Failed to load</div>
-    // if (!data) return <div>Loading</div>
-    console.log(data);
+    const { data, error } = useSWR('https://jsonplaceholder.typicode.com/todos/1', fetcher)
+    if (error) return <div>Failed to load</div>
+    if (!data) return <div>Loading</div>
+    console.log(typeof(data));
     return (
         <div>
             {/* <h1>{data.name}</h1>
