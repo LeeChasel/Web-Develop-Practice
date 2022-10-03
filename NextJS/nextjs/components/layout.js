@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import styles from './layout.module.css'
+// import styles from './layout.module.css'
 import Sidebar from './sidebar'
 import Footer from './footer'
 
@@ -13,7 +13,7 @@ export default function Layout({children})
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <Sidebar/>
-            <main className={styles.main}> {children} </main>
+            <main> {children} </main>
             <Footer/>
         </>
     )
