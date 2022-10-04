@@ -12,9 +12,9 @@ export default function Layout({children})
                 <meta name="description" content="create by NextJs"/>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
-            <Sidebar/>
+            {/* <Sidebar/> */}
             <main> {children} </main>
-            <Footer/>
+            {/* <Footer/> */}
         </>
     )
 }

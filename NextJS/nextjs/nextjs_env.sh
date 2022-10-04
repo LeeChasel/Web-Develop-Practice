@@ -9,9 +9,9 @@ cd /home/nextJs
 # npm install --save-dev sass
 # npm install react-bootstrap
 # npm install react-icons --save
-# npm install --save tailwindcss postcss autoprefixer
-# npm install @headlessui/react
-# npm install @heroicons/react
+npm install --save tailwindcss postcss autoprefixer
+npm install @headlessui/react
+npm install @heroicons/react
 
 
 # run the server
