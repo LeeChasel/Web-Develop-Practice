@@ -10,9 +10,6 @@ function Test() {
         Yes! You can purchase a license that you can share with your entire
         team.
       </Disclosure.Panel>
-      <Disclosure.Button className="py-2 bg-blue-300">
-        Is team pricing available?
-      </Disclosure.Button>
     </Disclosure>
   )
 }

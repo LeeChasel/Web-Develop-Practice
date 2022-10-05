@@ -1,6 +1,7 @@
 import Head from 'next/head'
 // import styles from './layout.module.css'
 import Sidebar from './sidebar'
+import Sidebar_demo  from './sidebar_demo'
 import Footer from './footer'
 
 export default function Layout({children})
@@ -12,7 +13,8 @@ export default function Layout({children})
                 <meta name="description" content="create by NextJs"/>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
-            {/* <Sidebar/> */}
+            <Sidebar/>
+            {/* <Sidebar_demo/> */}
             <main> {children} </main>
             {/* <Footer/> */}
         </>

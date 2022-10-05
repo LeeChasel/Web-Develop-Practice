@@ -4,8 +4,8 @@
 
 
 
-/* @layer base {
+@layer base {
   body {
     @apply bg-blue-300; 
   }
-} */
+}
