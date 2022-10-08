@@ -16,6 +16,7 @@ function Sidebar()
               Virtual Dashboard
             </h1>
             </div>
+            
           </Disclosure.Panel>
         </Disclosure>
 
