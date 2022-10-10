@@ -14,8 +14,8 @@ export default function Layout({children})
                 <meta name="description" content="create by NextJs"/>
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
-            {/* <Sidebar/> */}
-            <Sidebar_demo/>
+            <Sidebar/>
+            {/* <Sidebar_demo/> */}
             <main> 
                 {children} 
             </main>
