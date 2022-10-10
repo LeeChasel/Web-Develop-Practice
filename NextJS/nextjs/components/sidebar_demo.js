@@ -1,5 +1,6 @@
 // import React from 'react';
 import {Disclosure} from '@headlessui/react';
+import {Bars3Icon, HomeIcon} from '@heroicons/react/24/outline'
 
 function Sidebar_demo()
 {
@@ -15,6 +16,7 @@ function Sidebar_demo()
             </h1>
             <div className=" my-4 border-b border-gray-100 pb-4">
               <div className="flex mb-2 justify-start items-center gap-4 pl-5 hover:bg-gray-900 p-2 rounded-md group cursor-pointer hover:shadow-lg m-auto">
+                <HomeIcon className="group-hover:text-white "/>
                 <h3 className="text-base text-gray-800 group-hover:text-white font-semibold ">
                   Dashboard
                 </h3>
