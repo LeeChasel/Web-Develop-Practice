@@ -1,17 +1,29 @@
-import { Disclosure } from '@headlessui/react'
+import { useState } from 'react';
 
-function Test() {
-  return (
-    <Disclosure>
-      <Disclosure.Button className="py-2 bg-blue-300">
-        Is team pricing available?
-      </Disclosure.Button>
-      <Disclosure.Panel className="text-gray-500 bg-red-600">
-        Yes! You can purchase a license that you can share with your entire
-        team.
-      </Disclosure.Panel>
-    </Disclosure>
-  )
+function Test()
+{
+    const [likes, setLikes] = useState("open");
+    function handleClick() {
+        if (likes == "open")
+        {
+            setLikes("close");
+        } else if (likes == "close")
+        {
+            setLikes("open");
+
+        } else {
+            setLikes("Error");
+        }
+       
+    }
+
+    return (
+        <div>
+            <button onClick={handleClick}>Click </button>
+            <p>{likes}</p>
+
+        </div>
+    )
 }
 
 export default Test;
