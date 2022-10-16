@@ -9,7 +9,7 @@ function Layout({children})
     {
         var state = "close";
         var sidebarButton = document.getElementById("headlessui-disclosure-button-:R4m:");
-        sidebarButton.addEventListener("click", function(){
+        sidebarButton.addEventListener("click", function() {
             if (state == "close")
             {
                 state = "open";
@@ -36,8 +36,11 @@ function Layout({children})
                 <link rel="icon" href="/favicon.ico"/>
             </Head>
             <Sidebar/>
-            <main className={bgColor[state]}>
-                {children} 
+            <main>
+                <div className="bg-red-400">
+                {children}
+                </div>
+                
             </main>
         </>
     )
