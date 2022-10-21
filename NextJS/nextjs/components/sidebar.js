@@ -1,6 +1,13 @@
 import {Disclosure} from '@headlessui/react';
 import {Bars3Icon} from '@heroicons/react/24/outline'
 import Link from 'next/link'
+function NavItem()
+{
+  <Link href={href}>
+adad
+  </Link>
+
+}
 
 function Sidebar()
 {
@@ -16,26 +23,31 @@ function Sidebar()
             </h1>
             <div className="my-4 border-b border-gray-100 pb-4">
               {/* navbar item */}
+              <Disclosure.Button as={NavItem} href="/homePage">
+                
+              </Disclosure.Button>
+              
+              
               <Link href="/homePage">
-              <a className="flex flex-col mb-2  gap-4  hover:bg-gray-900 p-2 rounded-md group hover:shadow-lg m-auto">
+              <div className="flex flex-col mb-2  gap-4  hover:bg-gray-900 p-2 rounded-md group hover:shadow-lg m-auto">
                   <h3 className="text-gray-800 group-hover:text-white font-semibold">
                   HomePage
                   </h3>
-              </a>
+              </div>
               </Link>
               <Link href="/modifyData">
-              <a className="flex flex-col mb-2  gap-4  hover:bg-gray-900 p-2 rounded-md group hover:shadow-lg m-auto">
+              <div className="flex flex-col mb-2  gap-4  hover:bg-gray-900 p-2 rounded-md group hover:shadow-lg m-auto">
                 <h3 className="text-gray-800 group-hover:text-white font-semibold">
                   Modify Data
                 </h3>
-              </a>
+              </div>
               </Link>
               <Link href="/viewList">
-              <a className="flex flex-col mb-2  gap-4  hover:bg-gray-900 p-2 rounded-md group hover:shadow-lg m-auto">
+              <div className="flex flex-col mb-2  gap-4  hover:bg-gray-900 p-2 rounded-md group hover:shadow-lg m-auto">
                 <h3 className="text-gray-800 group-hover:text-white font-semibold">
                   View List
                 </h3>
-              </a>
+              </div>
               </Link>
             </div>
             {/* Login or Logout button */}
