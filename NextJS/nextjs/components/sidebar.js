@@ -1,13 +1,6 @@
 import {Disclosure} from '@headlessui/react';
 import {Bars3Icon} from '@heroicons/react/24/outline'
 import Link from 'next/link'
-function NavItem()
-{
-  <Link href={href}>
-adad
-  </Link>
-
-}
 
 function Sidebar()
 {
@@ -18,32 +11,27 @@ function Sidebar()
           </Disclosure.Button>
           <Disclosure.Panel className="p-6 w-60 h-screen bg-white z-20 fixed top-0 -left-96 lg:left-0 lg:w-60 peer-focus:left-0 peer:transition ease-out delay-150 duration-200">
             <div className="flex flex-col item-center text-center h-screen relative">
-            <h1 className="cursor-pointer font-bold text-blue-900 border-b border-gray-100 w-full pb-4">
+            <h1 className="font-bold text-blue-900 border-b border-gray-100 w-full pb-4">
               Nav Bar
             </h1>
             <div className="my-4 border-b border-gray-100 pb-4">
-              {/* navbar item */}
-              <Disclosure.Button as={NavItem} href="/homePage">
-                
-              </Disclosure.Button>
-              
-              
-              <Link href="/homePage">
-              <div className="flex flex-col mb-2  gap-4  hover:bg-gray-900 p-2 rounded-md group hover:shadow-lg m-auto">
+              {/* navbar item */}           
+              <Link href="/homePage" passHref>
+              <div className="flex flex-col mb-2  gap-4  hover:bg-gray-900 p-2 rounded-md group hover:shadow-lg m-auto cursor-pointer">
                   <h3 className="text-gray-800 group-hover:text-white font-semibold">
                   HomePage
                   </h3>
               </div>
               </Link>
-              <Link href="/modifyData">
-              <div className="flex flex-col mb-2  gap-4  hover:bg-gray-900 p-2 rounded-md group hover:shadow-lg m-auto">
+              <Link href="/modifyData" passHref>
+              <div className="flex flex-col mb-2  gap-4  hover:bg-gray-900 p-2 rounded-md group hover:shadow-lg m-auto cursor-pointer">
                 <h3 className="text-gray-800 group-hover:text-white font-semibold">
                   Modify Data
                 </h3>
               </div>
               </Link>
-              <Link href="/viewList">
-              <div className="flex flex-col mb-2  gap-4  hover:bg-gray-900 p-2 rounded-md group hover:shadow-lg m-auto">
+              <Link href="/viewList" passHref>
+              <div className="flex flex-col mb-2  gap-4  hover:bg-gray-900 p-2 rounded-md group hover:shadow-lg m-auto cursor-pointer">
                 <h3 className="text-gray-800 group-hover:text-white font-semibold">
                   View List
                 </h3>

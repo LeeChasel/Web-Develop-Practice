@@ -38,8 +38,8 @@ function Layout({children})
             <Sidebar/>
             <main>
                 <div className="h-screen flex bg-red-300 py-14">
-                  <div className="bg-white w-full flex justify-center">
-                    <div className="bg-sky-200 w-4/5 text-center">
+                  <div className="bg-sky-100 w-full flex justify-center">
+                    <div className="bg-gray-100 w-4/5">
                       {children}
                     </div>
                   </div>

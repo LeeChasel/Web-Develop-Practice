@@ -1,29 +1,9 @@
-import { useState } from 'react';
+import React from 'react'
 
-function Test()
-{
-    const [likes, setLikes] = useState("open");
-    function handleClick() {
-        if (likes == "open")
-        {
-            setLikes("close");
-        } else if (likes == "close")
-        {
-            setLikes("open");
-
-        } else {
-            setLikes("Error");
-        }
-       
-    }
-
+const test = () => {
     return (
-        <div>
-            <button onClick={handleClick}>Click </button>
-            <p>{likes}</p>
-
-        </div>
+        <div>home</div>
     )
 }
 
-export default Test;
+export default test

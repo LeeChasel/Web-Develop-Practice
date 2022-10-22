@@ -2,7 +2,7 @@ function HomePage()
 {
     return (
         <div>
-            <p>Home</p>
+            <p>Some info about this web.</p>
         </div>
     )
 }
