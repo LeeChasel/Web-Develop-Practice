@@ -1,14 +1,15 @@
 function ViewList()
 {
+    
     return (
         <div>
             <h1 className="text-center text-purple-600 font-bold">You can view, add and delete data here</h1>
             <div>
-                <button className="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300">
-                    button 1
+                <button className="mx-5 bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300">
+                    Add
                 </button>
                 <button className="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300">
-                    button 2
+                    Del
                 </button>
             </div>
             <table className="w-full">
@@ -29,7 +30,6 @@ function ViewList()
                         <td className="p-3 text-sm text-gray-700">0912345678</td>
                         <td className="p-3 text-sm text-gray-700">sameple@gmail.com</td>
                     </tr>
-
                 </tbody>
             </table>
         </div>

@@ -10,15 +10,21 @@ class tempController extends Controller
 {
     public function index(Request $request)
     {
-            // DB::insert('insert into news(title,description) values(?,?)', ['1','2']);
-            // return 111;
-        $data = ['name' => 'Chasel', 'state' => 'TW'];
-        // return response()->json([
-        //     'name' => 'Abigail',
-        //     'state' => 'CA',
-        // ]);
-        $res = response()->json($data);
-        return $res;
+        // DB::insert('insert into news(title,description) values(?,?)', ['1','2']);
+        $ds = DB::select('select * from news');
+        // $data = ['name' => 'Chasel', 'state' => 'TW'];
+        // $res = response()->json($data);
+        // return $res;
+        foreach ($ds as $d)
+        {
+            echo $d->id;
+            echo "!";
+            // echo "\n";
+            // echo $d->title;
+            // echo "\n";
+            // echo $d->description;
+        }
+
     }
 
     public function show()
