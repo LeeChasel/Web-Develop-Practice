@@ -36,4 +36,4 @@ npm install
 composer install
 
 ### When you want to create files using php artisan make:[option] [name]
-sudo docker run -it --rm -v /home/vagrant/Album_Web/Laravel/Laravel:/var/www -v /etc/passwd:/etc/passwd -u $(id -u ${USER}):$(id -g ${USER}) laradock_workspace bash
+sudo docker run -it --rm -v /home/vagrant/Album_web/Laravel/Laravel:/var/www -v /etc/passwd:/etc/passwd -u $(id -u ${USER}):$(id -g ${USER})  laradock_workspace bash

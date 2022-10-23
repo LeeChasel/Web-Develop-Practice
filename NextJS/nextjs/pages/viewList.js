@@ -1,5 +1,13 @@
+import useSWR from 'swr'
+
+const fetcher = (...args) => fetch(...args).then(res => res.json())
+
+
 function ViewList()
 {
+    const { data, error } = useSWR('http://localhost/api/userinfo/index', fetcher)
+    if (error) return <div>Failed to load</div>
+    if (!data) return <div>Loading...</div>
     
     return (
         <div>
@@ -15,21 +23,27 @@ function ViewList()
             <table className="w-full">
                 <thead className="bg-gray-50 border-b-2 border-gray-200">
                     <tr>
+                        <th className="p-3 text-sm font-semibold tracking-wide text-left">Id</th>
                         <th className="p-3 text-sm font-semibold tracking-wide text-left">Name</th>
                         <th className="p-3 text-sm font-semibold tracking-wide text-left">Gender</th>
-                        <th className="p-3 text-sm font-semibold tracking-wide text-left">Ages</th>
+                        <th className="p-3 text-sm font-semibold tracking-wide text-left">Age</th>
                         <th className="p-3 text-sm font-semibold tracking-wide text-left">Contact Number</th>
                         <th className="p-3 text-sm font-semibold tracking-wide text-left">Email</th>
                     </tr>
                 </thead>
                 <tbody>
+                {data.map((d) => (
+                <>
                     <tr className="bg-white">
-                        <td className="p-3 text-sm text-blue-500 font-bold">Chasel</td>
-                        <td className="p-3 text-sm text-gray-700">Male</td>
-                        <td className="p-3 text-sm text-gray-700">20</td>
-                        <td className="p-3 text-sm text-gray-700">0912345678</td>
-                        <td className="p-3 text-sm text-gray-700">sameple@gmail.com</td>
+                        <td className="p-3 text-sm text-blue-500 font-bold">{d.id}</td>
+                        <td className="p-3 text-sm text-gray-700 font-bold">{d.name}</td>
+                        <td className="p-3 text-sm text-gray-700 font-bold">{d.gender}</td>
+                        <td className="p-3 text-sm text-gray-700 font-bold">{d.age}</td>
+                        <td className="p-3 text-sm text-gray-700 font-bold">{d.number}</td>
+                        <td className="p-3 text-sm text-gray-700 font-bold">{d.email}</td>
                     </tr>
+                </>
+                ))}
                 </tbody>
             </table>
         </div>

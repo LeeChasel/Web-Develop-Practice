@@ -1,0 +1,36 @@
+<?php
+
+namespace Database\Seeders;
+
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+
+class UserinfoSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $table = DB::table("userinfos");
+        for ($i = 1; $i <= 5; $i++)
+        {
+            $num = "09";
+            for ($n = 1; $n <=8; $n++)
+            {
+                $num .= rand(0,9);
+            }
+            $gender = array("Male", "Female");
+            $table->insert([
+                'name' => Str::random(6),
+                'gender' => $gender[rand(0,1)],
+                'age' => rand(15,80),
+                'number' => $num,
+                'email' => Str::random(8).'@gmail.com',
+            ]);
+        }
+    }
+}
