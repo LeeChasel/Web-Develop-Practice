@@ -1,4 +1,5 @@
 import useSWR from 'swr'
+import Link from 'next/link'
 
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
@@ -16,9 +17,7 @@ function ViewList()
                 <button className="mx-5 bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300">
                     Add
                 </button>
-                <button className="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300">
-                    Del
-                </button>
+                
             </div>
             <table className="w-full">
                 <thead className="bg-gray-50 border-b-2 border-gray-200">
@@ -35,7 +34,13 @@ function ViewList()
                 {data.map((d) => (
                 <>
                     <tr className="bg-white">
-                        <td className="p-3 text-sm text-blue-500 font-bold">{d.id}</td>
+                        <td className="p-3 text-sm text-blue-500 font-bold">
+                        <Link href={{pathname: 'userinfo/[id_slug]', query: {id_slug: d.id},}}>
+                            <span className="cursor-pointer hover:underline">
+                                {d.id}
+                            </span>
+                        </Link>
+                        </td>
                         <td className="p-3 text-sm text-gray-700 font-bold">{d.name}</td>
                         <td className="p-3 text-sm text-gray-700 font-bold">{d.gender}</td>
                         <td className="p-3 text-sm text-gray-700 font-bold">{d.age}</td>

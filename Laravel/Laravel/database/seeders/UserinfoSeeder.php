@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use App\Models\Userinfo;
 
 class UserinfoSeeder extends Seeder
 {
@@ -15,7 +16,6 @@ class UserinfoSeeder extends Seeder
      */
     public function run()
     {
-        $table = DB::table("userinfos");
         for ($i = 1; $i <= 5; $i++)
         {
             $num = "09";
@@ -24,7 +24,7 @@ class UserinfoSeeder extends Seeder
                 $num .= rand(0,9);
             }
             $gender = array("Male", "Female");
-            $table->insert([
+            Userinfo::create([
                 'name' => Str::random(6),
                 'gender' => $gender[rand(0,1)],
                 'age' => rand(15,80),
