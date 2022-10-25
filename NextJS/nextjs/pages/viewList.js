@@ -1,24 +1,26 @@
 import useSWR from 'swr'
+import React from 'react'
 import Link from 'next/link'
+import ModifyData from '../components/modifyData'
 
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
 
 function ViewList()
 {
+    const [isOpen, setIsOpen] = React.useState(false)
+
     const { data, error } = useSWR('http://localhost/api/userinfo/index', fetcher)
     if (error) return <div>Failed to load</div>
     if (!data) return <div>Loading...</div>
-    
     return (
         <div>
             <h1 className="text-center text-purple-600 font-bold">You can view, add and delete data here</h1>
-            <div>
-                <button className="mx-5 bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300">
-                    Add
-                </button>
-                
-            </div>
+            <button onClick={() => setIsOpen(true)} className="mx-5 bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300">
+                Add
+            </button>
+            <ModifyData isOpen={isOpen} setIsOpen={setIsOpen} />
+            
             <table className="w-full">
                 <thead className="bg-gray-50 border-b-2 border-gray-200">
                     <tr>
