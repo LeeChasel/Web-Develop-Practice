@@ -1,7 +1,7 @@
 import useSWR from 'swr'
 import React from 'react'
 import Link from 'next/link'
-import ModifyData from '../components/modifyData'
+import AddData from '../components/addData'
 
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
@@ -19,7 +19,7 @@ function ViewList()
             <button onClick={() => setIsOpen(true)} className="mx-5 bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300">
                 Add
             </button>
-            <ModifyData isOpen={isOpen} setIsOpen={setIsOpen} />
+            <AddData isOpen={isOpen} setIsOpen={setIsOpen} />
             
             <table className="w-full">
                 <thead className="bg-gray-50 border-b-2 border-gray-200">

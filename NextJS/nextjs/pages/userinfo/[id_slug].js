@@ -1,29 +1,48 @@
 import { useRouter } from 'next/router'
 import useSWR from 'swr'
 import React from 'react'
-import ModifyData from '../../components/modifyData'
+import UpdateData from '../../components/updateData'
+import DeleteData from '../../components/deleteData'
 
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
+
 function InfoDetail()
 {
-    const [isOpen, setIsOpen] = React.useState(false)
+    const [updateIsOpen, setUpdateIsOpen] = React.useState(false)
+    const [deleteIsOpen, setDeleteIsOpen] = React.useState(false)
     const router = useRouter();
-    const id_slug = router.query.id_slug
-
-    const { data, error } = useSWR('http://localhost/api/userinfo/index', fetcher)
+    const { data, error } = useSWR('http://localhost:80/api/userinfo/show/' + router.query.id_slug, fetcher)
     if (error) return <div>Failed to load</div>
     if (!data) return <div>Loading...</div>
+    
+//     const [data, setData] = React.useState(null)
+//     const [isLoading, setLoading] = React.useState(false)
+//     const router = useRouter();
+
+//     React.useEffect(() => {
+//         setLoading(true)
+//         fetch('http://localhost:80/api/userinfo/show/' + router.query.id_slug)
+//         .then(res => res.json())
+//         .then(data => {
+//         setData(data)
+//         setLoading(false)
+//       })
+//   }, [])
+
+//   if (isLoading) return <p>Loading...</p>
+//   if (!data) return <p>No profile data</p>
 
     return (
         <>
-        <button className="mx-5 bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300">
+        <button onClick={() => setDeleteIsOpen(true)}className="mx-5 bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300">
             Delete
         </button>
-        <button onClick={() => setIsOpen(true)} className="mx-5 bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300">
+        <button onClick={() => setUpdateIsOpen(true)} className="mx-5 bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300">
             Edit
         </button>
-        <ModifyData isOpen={isOpen} setIsOpen={setIsOpen} />
+        <UpdateData isOpen={updateIsOpen} setIsOpen={setUpdateIsOpen} dataList={data}/>
+        <DeleteData isOpen={deleteIsOpen} setIsOpen={setDeleteIsOpen} id={data.id}/>
         <table className="w-full">
                 <thead className="bg-gray-50 border-b-2 border-gray-200">
                     <tr>
@@ -39,14 +58,14 @@ function InfoDetail()
                 </thead>
                 <tbody>               
                     <tr className="bg-white">
-                        <td className="p-3 text-sm text-blue-500 font-bold">{data[id_slug-1].id}</td>
-                        <td className="p-3 text-sm text-gray-700 font-bold">{data[id_slug-1].name}</td>
-                        <td className="p-3 text-sm text-gray-700 font-bold">{data[id_slug-1].gender}</td>
-                        <td className="p-3 text-sm text-gray-700 font-bold">{data[id_slug-1].age}</td>
-                        <td className="p-3 text-sm text-gray-700 font-bold">{data[id_slug-1].number}</td>
-                        <td className="p-3 text-sm text-gray-700 font-bold">{data[id_slug-1].email}</td>
-                        <td className="p-3 text-sm text-gray-700 font-bold">{data[id_slug-1].created_at}</td>
-                        <td className="p-3 text-sm text-gray-700 font-bold">{data[id_slug-1].updated_at}</td>
+                        <td className="p-3 text-sm text-blue-500 font-bold">{data.id}</td>
+                        <td className="p-3 text-sm text-gray-700 font-bold">{data.name}</td>
+                        <td className="p-3 text-sm text-gray-700 font-bold">{data.gender}</td>
+                        <td className="p-3 text-sm text-gray-700 font-bold">{data.age}</td>
+                        <td className="p-3 text-sm text-gray-700 font-bold">{data.number}</td>
+                        <td className="p-3 text-sm text-gray-700 font-bold">{data.email}</td>
+                        <td className="p-3 text-sm text-gray-700 font-bold">{data.created_at}</td>
+                        <td className="p-3 text-sm text-gray-700 font-bold">{data.updated_at}</td>
                     </tr>
                 </tbody>
             </table>

@@ -1,9 +1,9 @@
 import { Dialog } from '@headlessui/react'
 
-function ModifyData({isOpen, setIsOpen})
+function AddData({isOpen, setIsOpen})
 {
   const handleSubmit = async(event) => {
-    // event.preventDefault()
+    event.preventDefault()
     const data = {
       name: event.target.name.value,
       gender: event.target.gender.value,
@@ -20,7 +20,8 @@ function ModifyData({isOpen, setIsOpen})
     body: JsonData,
   }
   const response = await fetch(endpoint, options)
-  console.log(response);
+  window.alert("Create Successful!")
+  setIsOpen(false)
   }
 
     return (
@@ -33,7 +34,8 @@ function ModifyData({isOpen, setIsOpen})
           <input type="text" id="name" name="name" />
 
           <label htmlFor="gender">Gender</label>
-          <select id="gender" name="gender">
+          <select id="gender" name="gender" defaultValue="">
+            <option value="" disabled hidden>Choose here</option>
             <option value="Male">Male</option>
             <option value="Female">Female</option>
           </select>
@@ -47,7 +49,7 @@ function ModifyData({isOpen, setIsOpen})
           <label htmlFor="email">Email</label>
           <input type="email" id="email" name="email" />
           
-          <button type="submit">Add New Data</button>
+          <button type="submit">Create New Data</button>
         </form>
 
         <button onClick={() => setIsOpen(false)}>Cancel</button>
@@ -57,4 +59,4 @@ function ModifyData({isOpen, setIsOpen})
     )    
 }
 
-export default ModifyData;
+export default AddData;

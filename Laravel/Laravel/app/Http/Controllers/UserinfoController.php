@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-// use Illuminate\Http\Response;
 use App\Models\Userinfo;
+use Illuminate\Http\RedirectResponse;
 
 class UserinfoController extends Controller
 {
@@ -15,15 +15,23 @@ class UserinfoController extends Controller
             return Userinfo::all();
         }
     }
+
+    public function show(Request $req, $id)
+    {
+        if ($req->is('api/userinfo/show/' . $id))
+        {
+            $data = Userinfo::find($id);
+            return $data;
+        }
+    }
     
     public function delete(Request $req, $id)
     {
-        if ($req->is('api/userinfo/delete/' + $id))
+        if ($req->is('api/userinfo/delete/' . $id))
         {
             Userinfo::find($id)->delete();
             return response("OK",200);
         }
-        
     }
 
     public function add(Request $req)
@@ -38,12 +46,23 @@ class UserinfoController extends Controller
                 "email" => $req->input('email'),
             ];
             Userinfo::create($data);
-            return response($data);
+            return response("OK", 200);
         }
     }
 
-    public function testt(Request $req)
+    public function updateData(Request $req, $id)
     {
-        
+        if ($req->is('api/userinfo/updateData/' . $id))
+        {   
+                $data = Userinfo::find($id);
+                $data->name = $req->name;
+                $data->gender = $req->gender;
+                $data->age = $req->age;
+                $data->number = $req->number;
+                $data->email = $req->email;
+                $data->save();
+
+                return response("OK",200);
+        }
     }
 }
