@@ -21,12 +21,6 @@ function Layout({children})
     //         }
     //     });
     // }
-    // https://github.com/tailwindlabs/tailwindcss/discussions/3461
-    // const bgColor = {
-    //     default : 'bg-black',
-    //     'close' : 'bg-green-500',
-    //     'open' : 'bg-yellow-500',
-    // }
 
     return (
         <>

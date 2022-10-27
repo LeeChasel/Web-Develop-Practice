@@ -15,23 +15,6 @@ function InfoDetail()
     const { data, error } = useSWR('http://localhost:80/api/userinfo/show/' + router.query.id_slug, fetcher)
     if (error) return <div>Failed to load</div>
     if (!data) return <div>Loading...</div>
-    
-//     const [data, setData] = React.useState(null)
-//     const [isLoading, setLoading] = React.useState(false)
-//     const router = useRouter();
-
-//     React.useEffect(() => {
-//         setLoading(true)
-//         fetch('http://localhost:80/api/userinfo/show/' + router.query.id_slug)
-//         .then(res => res.json())
-//         .then(data => {
-//         setData(data)
-//         setLoading(false)
-//       })
-//   }, [])
-
-//   if (isLoading) return <p>Loading...</p>
-//   if (!data) return <p>No profile data</p>
 
     return (
         <>
