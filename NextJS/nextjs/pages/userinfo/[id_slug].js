@@ -15,7 +15,12 @@ function InfoDetail()
     const { data, error } = useSWR('http://localhost:80/api/userinfo/show/' + router.query.id_slug, fetcher)
     if (error) return <div>Failed to load</div>
     if (!data) return <div>Loading...</div>
-
+    
+    const formatDate = (dateString) => {
+        const options = {year : "numeric", month: "long", day: "numeric", hour: 'numeric', minute: 'numeric', timeZoneName: 'shortOffset'}
+        return new Date(dateString).toLocaleDateString("zh-TW", options)
+    }
+    
     return (
         <>
         <button onClick={() => setDeleteIsOpen(true)}className="mx-5 bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300">
@@ -47,8 +52,8 @@ function InfoDetail()
                         <td className="p-3 text-sm text-gray-700 font-bold">{data.age}</td>
                         <td className="p-3 text-sm text-gray-700 font-bold">{data.number}</td>
                         <td className="p-3 text-sm text-gray-700 font-bold">{data.email}</td>
-                        <td className="p-3 text-sm text-gray-700 font-bold">{data.created_at}</td>
-                        <td className="p-3 text-sm text-gray-700 font-bold">{data.updated_at}</td>
+                        <td className="p-3 text-sm text-gray-700 font-bold">{formatDate(data.created_at)}</td>
+                        <td className="p-3 text-sm text-gray-700 font-bold">{formatDate(data.updated_at)}</td>
                     </tr>
                 </tbody>
             </table>

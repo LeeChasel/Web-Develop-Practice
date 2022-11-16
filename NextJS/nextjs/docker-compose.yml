@@ -3,6 +3,8 @@ services:
   nextjs:
     build: .
     container_name: "frontend"
+    environment:
+      - TZ=Asia/Taipei
     ports:
       - "64550:64550"
     volumes:

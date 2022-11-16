@@ -12,6 +12,7 @@
 # install npm packages
 cd /home/nextJs
 # put 'npm install' in afterClone situation'
+# npm install -D @tailwindcss/forms
 
 
 # run the server
