@@ -23,7 +23,6 @@ function Sidebar()
                   </h3>
               </div>
               </Link>
-
               <Link href="/viewList" passHref>
                 <div onClick={() => close()} className="flex flex-col mb-2 gap-4 hover:bg-gray-900 p-2 rounded-md group hover:shadow-lg m-auto cursor-pointer">
                 <h3 className="text-gray-800 group-hover:text-white font-semibold">

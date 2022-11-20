@@ -14,15 +14,19 @@ function ViewList()
     if (error) return <div>Failed to load</div>
     if (!data) return <div>Loading...</div>
     return (
-        <div>
-            <h1 className="text-center text-purple-600 font-bold">You can view, add and delete data here</h1>
-            <button onClick={() => setIsOpen(true)} className="mx-5 bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300">
+        <>
+            <span>
+            <h1 className="translate-x-1/2 text-purple-600 font-bold text-2xl mt-2 inline-block ">You can view, add, modify and delete data here</h1>
+            <button onClick={() => setIsOpen(true)} className="absolute right-28 top-2 rounded bg-purple-500 hover:bg-purple-600 active:bg-purple-700 focus:outline-none focus:ring focus:ring-violet-300">
                 Add
             </button>
-            <AddData isOpen={isOpen} setIsOpen={setIsOpen} />
+            </span>
             
+            
+            <AddData isOpen={isOpen} setIsOpen={setIsOpen} />
+            <div className=" overflow-y-scroll h-full">
             <table className="w-full">
-                <thead className="bg-gray-50 border-b-2 border-gray-200">
+                <thead className="bg-fuchsia-300 border-b-2 border-fuchsia-400">
                     <tr>
                         <th className="p-3 text-sm font-semibold tracking-wide text-left">Id</th>
                         <th className="p-3 text-sm font-semibold tracking-wide text-left">Name</th>
@@ -35,7 +39,7 @@ function ViewList()
                 <tbody>
                 {data.map((d) => (
                 <>
-                    <tr className="bg-white">
+                    <tr className="bg-fuchsia-200">
                         <td className="p-3 text-sm text-blue-500 font-bold">
                         <Link href={{pathname: 'userinfo/[id_slug]', query: {id_slug: d.id},}}>
                             <span className="cursor-pointer hover:underline">
@@ -53,7 +57,8 @@ function ViewList()
                 ))}
                 </tbody>
             </table>
-        </div>
+            </div>
+        </>
     )
 }
 

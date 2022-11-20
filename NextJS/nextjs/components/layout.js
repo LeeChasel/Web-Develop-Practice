@@ -1,27 +1,8 @@
 import Head from 'next/head'
-// import styles from './layout.module.css'
 import Sidebar from './sidebar'
 
 function Layout({children})
 {
-    // https://github.com/vercel/next.js/issues/5354
-    // if (typeof window !== 'undefined')
-    // {
-    //     var state = "close";
-    //     var sidebarButton = document.getElementById("headlessui-disclosure-button-:R4m:");
-    //     sidebarButton.addEventListener("click", function() {
-    //         if (state == "close")
-    //         {
-    //             state = "open";
-    //         } else if (state == "open")
-    //         {
-    //             state = "close";
-    //         } else {
-    //             state = "error";
-    //         }
-    //     });
-    // }
-
     return (
         <>
             <Head>
@@ -31,9 +12,9 @@ function Layout({children})
             </Head>
             <Sidebar/>
             <main>
-                <div className="h-screen flex bg-red-300 py-14">
-                  <div className="bg-sky-100 w-full flex justify-center">
-                    <div className="bg-gray-100 w-4/5">
+                <div className="h-screen flex bg-rose-300 py-14">
+                  <div className="bg-amber-100 w-full flex justify-center">
+                    <div className="bg-emerald-200 w-4/5 relative">
                       {children}
                     </div>
                   </div>
