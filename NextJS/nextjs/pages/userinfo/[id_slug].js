@@ -23,16 +23,19 @@ function InfoDetail()
     
     return (
         <>
-        <button onClick={() => setDeleteIsOpen(true)}className="mx-5 bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300">
-            Delete
-        </button>
-        <button onClick={() => setUpdateIsOpen(true)} className="mx-5 bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300">
+        <div className="relative h-10">
+        <span className="invisible">space</span>
+        <button onClick={() => setUpdateIsOpen(true)} className="right-32 absolute rounded p-1 top-1 bg-purple-500 hover:bg-purple-600 active:bg-purple-700 focus:outline-none focus:ring focus:ring-purple-300">
             Edit
         </button>
+        <button onClick={() => setDeleteIsOpen(true)} className="right-12 absolute rounded p-1 top-1 bg-purple-500 hover:bg-purple-600 active:bg-purple-700 focus:outline-none focus:ring focus:ring-purple-300">
+            Delete
+        </button>
+        </div>
         <UpdateData isOpen={updateIsOpen} setIsOpen={setUpdateIsOpen} dataList={data}/>
         <DeleteData isOpen={deleteIsOpen} setIsOpen={setDeleteIsOpen} id={data.id}/>
         <table className="w-full">
-                <thead className="bg-gray-50 border-b-2 border-gray-200">
+                <thead className="bg-fuchsia-300 border-b-2 border-fuchsia-400">
                     <tr>
                         <th className="p-3 text-sm font-semibold tracking-wide text-left">Id</th>
                         <th className="p-3 text-sm font-semibold tracking-wide text-left">Name</th>
@@ -45,7 +48,7 @@ function InfoDetail()
                     </tr>
                 </thead>
                 <tbody>               
-                    <tr className="bg-white">
+                    <tr className="bg-fuchsia-200 border-y border-fuchsia-400">
                         <td className="p-3 text-sm text-blue-500 font-bold">{data.id}</td>
                         <td className="p-3 text-sm text-gray-700 font-bold">{data.name}</td>
                         <td className="p-3 text-sm text-gray-700 font-bold">{data.gender}</td>

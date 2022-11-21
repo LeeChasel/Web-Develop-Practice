@@ -57,24 +57,30 @@ function AddData({isOpen, setIsOpen})
           </select>
           </label>
 
-          <label className="block">
-          <span>Age</span>
+          <label className="block relative">
+          <span>Age
+            <p className="inline absolute right-2 text-red-600 text-sm font-bold">1~99</p>
+          </span>
           <input type="number" id="age" name="age" required className="indent-1 mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"/>
           </label>
 
-          <label className="block">
-          <span>Contact Number</span>
+          <label className="block relative">
+          <span>Contact Number
+          <p className="inline absolute right-2 text-red-600 text-sm font-bold">09XXXXXXXX, 10 digits in total</p>
+          </span>
           <input type="tel" id="number" name="number" className="indent-1 mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"/>
           </label>
 
-          <label className="block">
-          <span>Email address</span>
+          <label className="block relative">
+          <span>Email address
+          <p className="inline absolute right-2 text-red-600 text-sm font-bold">Only letters and numbers are allowed</p>
+          </span>
           <input type="email" id="email" name="email" placeholder="chasel@example.com" className="indent-1 mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0"/>
           </label>
 
           <div className="relative">
-          <button className="bg-red-300 rounded hover:bg-red-400 active:bg-red-500 left-0 w-5/12 absolute" type="submit">Create New Data</button>
-          <button className="bg-red-300 rounded hover:bg-red-400 active:bg-red-500 right-0 w-5/12 absolute" onClick={() => setIsOpen(false)}>Cancel</button>
+          <button className="bg-red-300 rounded-full hover:bg-red-400 active:bg-red-500 left-0 w-5/12 absolute" type="submit">Create New Data</button>
+          <button className="bg-red-300 rounded-full hover:bg-red-400 active:bg-red-500 right-0 w-5/12 absolute" onClick={() => setIsOpen(false)}>Cancel</button>
           </div>
         </form>
         </div>

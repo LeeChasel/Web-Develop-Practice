@@ -27,9 +27,9 @@ class UserinfoSeeder extends Seeder
             Userinfo::create([
                 'name' => Str::random(6),
                 'gender' => $gender[rand(0,1)],
-                'age' => rand(15,80),
+                'age' => rand(1,99),
                 'number' => $num,
-                'email' => Str::random(8).'@gmail.com',
+                'email' => Str::random(6).'@gmail.com',
             ]);
         }
     }
