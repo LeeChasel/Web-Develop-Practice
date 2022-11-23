@@ -5,7 +5,6 @@ import AddData from '../components/addData'
 
 const fetcher = (...args) => fetch(...args).then(res => res.json())
 
-
 function ViewList()
 {
     const [isOpen, setIsOpen] = React.useState(false)
@@ -14,7 +13,7 @@ function ViewList()
     if (error) return <div>Failed to load</div>
     if (!data) return <div>Loading...</div>
     return (
-        <>
+        <div className="h-[87%]">
             <span>
             <h1 className="translate-x-1/2 text-purple-600 font-bold text-2xl my-1 inline-block ">You can view, add, modify and delete data here</h1>
             <button onClick={() => setIsOpen(true)} className="absolute right-28 top-1 p-1 rounded bg-purple-500 hover:bg-purple-600 active:bg-purple-700 focus:outline-none focus:ring focus:ring-purple-300">
@@ -22,10 +21,9 @@ function ViewList()
             </button>
             </span>
             
-            
             <AddData isOpen={isOpen} setIsOpen={setIsOpen} />
             <div className="overflow-y-auto h-full bg-sky-400 ">
-            <table className="w-full">
+            <table className="w-full h-full">
                 <thead className="bg-fuchsia-300 border-b-2 border-fuchsia-400">
                     <tr>
                         <th className="p-3 text-sm font-semibold tracking-wide text-left">Id</th>
@@ -58,7 +56,7 @@ function ViewList()
                 </tbody>
             </table>
             </div>
-        </>
+        </div>
     )
 }
 

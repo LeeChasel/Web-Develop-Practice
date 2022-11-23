@@ -1,21 +1,18 @@
-# Album_Web
+# Web Develop Practice
+This is a practice project to develop web using [Next.js](https://github.com/vercel/next.js) as frontend and [Laravel](https://github.com/laravel/laravel) as backend.
 
-This is a website let you browse your images and videos in local machine folders.
+## Port Setting
+- Laravel : http://localhost:80
+- Next.js : http://localhost:64550
+- phpMyadmin : http://localhost:8081
 
-## Port
-`laravel home page : http://localhost:80`
+# Installation
+```
+git clone --recursive https://github.com/LeeChasel/Album_web.git
+```
 
-`nextJs home page : http://localhost:64550`
-
-`phpmyadmin login page : http://localhost:8081`
-
-## How to clone
-`git clone --recursive https://github.com/LeeChasel/Album_web.git`
-
-## After clone
-cd laradock/
-
-cp env-example .env
+## Set environment
+cp /Laravel/laradock/.env.example /Laravel/laradock/.env
 
 change 'APP_CODE_PATH_HOST=../' to 'APP_CODE_PATH_HOST=../Laravel'
 
@@ -35,5 +32,11 @@ npm install
 
 composer install
 
+## Run services
+```
+cd /home/vagrant/Album_web && sh startServices.sh
+```
+
 ### When you want to create files using php artisan make:[option] [name]
+
 sudo docker run -it --rm -v /home/vagrant/Album_web/Laravel/Laravel:/var/www -v /etc/passwd:/etc/passwd -u $(id -u ${USER}):$(id -g ${USER})  laradock_workspace bash
