@@ -6,37 +6,30 @@ This is a practice project to develop web using [Next.js](https://github.com/ver
 - Next.js : http://localhost:64550
 - phpMyadmin : http://localhost:8081
 
-# Installation
+## Enter Page
+[HomePage](http://localhost:64550/homePage)
+
+# How To Use
+## Installation
 ```
 git clone --recursive https://github.com/LeeChasel/Album_web.git
 ```
 
-## Set environment
-cp /Laravel/laradock/.env.example /Laravel/laradock/.env
-
-change 'APP_CODE_PATH_HOST=../' to 'APP_CODE_PATH_HOST=../Laravel'
-
-cp -r nginx/sites/laravel.conf.example nginx/sites/laravel.test.conf
-
-in laravel.test.conf, edit `root /var/www/laravel/public` to `root /var/www/public`
-
-copy Album_web/.env.example to .env
-
-## install npm and composer
-docker-compose up -d workspace
-
-docker-compose exec workspace bash
-
-### in workspace container
-npm install
-
-composer install
-
-## Run services
+## Setting environment
 ```
-cd /home/vagrant/Album_web && sh startServices.sh
+sh afterClone.sh
 ```
 
-### When you want to create files using php artisan make:[option] [name]
+# Run Services
+```
+sh startServices.sh
+```
 
-sudo docker run -it --rm -v /home/vagrant/Album_web/Laravel/Laravel:/var/www -v /etc/passwd:/etc/passwd -u $(id -u ${USER}):$(id -g ${USER})  laradock_workspace bash
+# Notes
+
+## When you want to use `php artisan make` commands to create new files
+
+Run docker as user vagrant
+```
+sudo docker run -it --rm -v /Laravel/Laravel:/var/www -v /etc/passwd:/etc/passwd -u $(id -u ${USER}):$(id -g ${USER})  laradock_workspace bash
+```
