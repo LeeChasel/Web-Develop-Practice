@@ -18,6 +18,6 @@ sed -e 's/DB_HOST=127.0.0.1/DB_HOST=mysql/g' -e 's/DB_DATABASE=laravel/DB_DATABA
 sed -i 's/UTC/Asia\/Taipei/g' Laravel/Laravel/config/app.php
 
 # Install Laravel's npm and composer packages
-cd Laravel/laradock && docker-compose up -d workspace
+cd Laravel/laradock && docker-compose up -d nginx mysql phpmyadmin
 docker-compose exec workspace npm install
 docker-compose exec workspace composer install
