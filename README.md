@@ -42,4 +42,4 @@ sudo docker run -it --rm -v /Laravel/Laravel:/var/www -v /etc/passwd:/etc/passwd
 In workspace container, you can use `php artisan db:seed` to create 5 records.
 
 ## Running locally ?
-Unmade
+Undo
