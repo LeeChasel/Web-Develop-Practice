@@ -1,0 +1,11 @@
+id,name,price,stock,type
+3001,HP Probook ,38499,35,Laptop
+3002,MSI Katana,28499,22,Laptop
+3003,HP Pavilion,31799,17,Laptop
+3004,ASUS Zenbook,38900,27,Laptop
+3005,Apple MacBook Air,43499,14,Laptop
+3006,Apple MacBook Pro,42499,18,Laptop
+3007,HP Victus,23999,13,Laptop
+3008,HP Elitebook,33999,6,Laptop
+3009,Acer Aspire,26399,19,Laptop
+3010,HP,19999,2,Laptop

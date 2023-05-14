@@ -5,17 +5,16 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class ClotheSeeder extends Seeder
+class FoodSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      *
      * @return void
      */
-
     public function run()
     {
-        $file = fopen(__DIR__."/CSV/clothe/Clothes.csv", "r");
+        $file = fopen(__DIR__."/CSV/food/food.csv", "r");
         // Remove first row
         fgetcsv($file);
         
@@ -32,7 +31,7 @@ class ClotheSeeder extends Seeder
             array_push($data, $row_data);
         }
         DB::connection('mysql2')
-            ->table('clothes')
+            ->table('food')
             ->insert($data);
     }
 }

@@ -16,7 +16,36 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            UserinfoSeeder::class,
+            // UserinfoSeeder::class,
+
+            // 1_food
+            BeverageSeeder::class,
+            CannedFoodSeeder::class,
+            DryGoodsSeeder::class,
+            FoodSeeder::class,
+            OrganicFoodSeeder::class,
+            SnacksSeeder::class,
+
+            // 2_clothe
+            AllSeasonSeeder::class,
+            ClotheSeeder::class,
+            SummerSeeder::class,
+            WinterSeeder::class,
+
+            // 3_electron
+            EarphoneSeeder::class,
+            ElectronicSeeder::class,
+            HardDriveSeeder::class,
+            LaptopSeeder::class,
+            TelevisionSeeder::class,
+
+            // 4_book
+            BookSeeder::class,
+            BookTotalSeeder::class,
+            GameSeeder::class,
+            KnowledgeSeeder::class,
+            LanguageSeeder::class,
+            StorySeeder::class,
         ]);
     }
 }

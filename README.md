@@ -35,7 +35,7 @@ sh startServices.sh
 
 Run docker as user vagrant
 ```
-sudo docker run -it --rm -v ~/Laravel/Laravel:/var/www -v /etc/passwd:/etc/passwd -u $(id -u ${USER}):$(id -g ${USER})  laradock_workspace bash
+sudo docker run -it --rm -v ~/Album_web/Laravel/Laravel:/var/www -v /etc/passwd:/etc/passwd -u $(id -u ${USER}):$(id -g ${USER})  laradock_workspace bash
 ```
 
 ## Database Data Seed

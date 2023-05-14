@@ -13,15 +13,18 @@ class CreateUserinfosTable extends Migration
      */
     public function up()
     {
-        Schema::create('userinfos', function (Blueprint $table) {
-            $table->id();
-            $table->string("name");
-            $table->string("gender");
-            $table->integer("age");
-            $table->char("number", 10);
-            $table->string("email");
-            $table->timestamps();
-        });
+        if (!Schema::hasTable('userinfos'))
+        {
+            Schema::create('userinfos', function (Blueprint $table) {
+                $table->id();
+                $table->string("name");
+                $table->string("gender");
+                $table->integer("age");
+                $table->char("number", 10);
+                $table->string("email");
+                $table->timestamps();
+            });
+        }
     }
 
     /**

@@ -2,8 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\tempController;
 use App\Http\Controllers\UserinfoController;
+use App\Http\Controllers\CostcoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +24,5 @@ Route::get('userinfo/show/{id}', [UserinfoController::class, 'show']);
 Route::post('userinfo/add', [UserinfoController::class, 'add']);
 Route::delete('userinfo/delete/{id}', [UserinfoController::class, 'delete']);
 Route::patch('userinfo/updateData/{id}', [UserinfoController::class, 'updateData']);
+
+Route::get('costco/index', [CostcoController::class, 'index']);

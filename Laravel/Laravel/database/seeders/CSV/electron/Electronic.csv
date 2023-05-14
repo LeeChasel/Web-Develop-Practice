@@ -1,0 +1,49 @@
+id,name,price,stock,type
+3001,HP Probook ,38499,35,Laptop
+3002,MSI Katana,28499,22,Laptop
+3003,HP Pavilion,31799,17,Laptop
+3004,ASUS Zenbook,38900,27,Laptop
+3005,Apple MacBook Air,43499,14,Laptop
+3006,Apple MacBook Pro,42499,18,Laptop
+3007,HP Victus,23999,13,Laptop
+3008,HP Elitebook,33999,6,Laptop
+3009,Acer Aspire,26399,19,Laptop
+3010,HP,19999,2,Laptop
+3021,Samsung Neo QLED,136199,6,Television
+3022,TCL Mini LED QLED,28799,4,Television
+3023,Philips UHD LED,23999,9,Television
+3024,Samsung Crystal UHD,27999,6,Television
+3025,LG UHD,27495,3,Television
+3026,LG OLED,66999,7,Television
+3027,TCL FHD,53999,5,Television
+3028,TOSHIBA LED,11999,4,Television
+3029,SHARP UHD,33999,7,Television
+3030,TOSHIBA IPS LED,22299,3,Television
+3031,Yamaha ANC,8299,3,Earphone
+3032,Anker Soundcore Life  A2 NC,2149,6,Earphone
+3033,Jabra Elite 4 Active,2549,5,Earphone
+3034,Jabra Talk SE,799,12,Earphone
+3035,Beats Studio Buds,3989,9,Earphone
+3036,Beats Studio3 Wireless,8999,10,Earphone
+3037,Beats Solo3 Wireless ,5769,5,Earphone
+3038,Beats Fit Pro,5445,4,Earphone
+3039,Jabra Talk 45 ,1599,7,Earphone
+3040,Samsung Buds2 Pro R510,6299,13,Earphone
+3041,Jabra Connect 4h,2499,2,Earphone
+3042,Apple AirPods Pro,7049,4,Earphone
+3043,Jabra Elite 7 Active ANC,5499,7,Earphone
+3044,Apple AirPods Max,16995,17,Earphone
+3045,Powerbeats Pro,4999,3,Earphone
+3046,Razer Kraken V3 X,1499,1,Earphone
+3047,Razer Barracuda X,2499,6,Earphone
+3048,Razer BlackShark V2 Pro,3799,9,Earphone
+3051,Transcend Type C,13399,15,Hard drive
+3052,LaCie  Rugged SSD Pro,13299,12,Hard drive
+3053,Transcend Type A,9275,8,Hard drive
+3054,Seagate Expansion,7990,17,Hard drive
+3055,Seagate Firecuda Gaming,3999,6,Hard drive
+3056,PNY Pro Elite,3149,7,Hard drive
+3057,Transcend StoreJet ,2459,9,Hard drive
+3058,Seagate Expansion Portable,2999,3,Hard drive
+3059,PNY Pro Elite,2349,5,Hard drive
+3060,LaCie Rugged SSD Pro,8999,14,Hard drive
