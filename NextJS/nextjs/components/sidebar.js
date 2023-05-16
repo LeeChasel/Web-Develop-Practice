@@ -23,10 +23,17 @@ function Sidebar()
                   </h3>
               </a>
               </Link>
-              <Link href="/viewList" passHref legacyBehavior>
+              {/* <Link href="/viewList" passHref legacyBehavior>
                 <a onClick={() => close()} className="flex flex-col mb-2 gap-4 hover:bg-gray-900 p-2 rounded-md group hover:shadow-lg m-auto cursor-pointer">
                 <h3 className="text-black group-hover:text-white font-semibold">
                   View List
+                </h3>
+              </a>
+              </Link> */}
+              <Link href="/costco" passHref legacyBehavior>
+                <a onClick={() => close()} className="flex flex-col mb-2 gap-4 hover:bg-gray-900 p-2 rounded-md group hover:shadow-lg m-auto cursor-pointer">
+                <h3 className="text-black group-hover:text-white font-semibold">
+                  Costco
                 </h3>
               </a>
               </Link>
