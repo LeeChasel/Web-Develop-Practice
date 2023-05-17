@@ -9,3 +9,7 @@
     @apply bg-blue-800; 
   }
 }
+
+.btn {
+  @apply capitalize;
+}

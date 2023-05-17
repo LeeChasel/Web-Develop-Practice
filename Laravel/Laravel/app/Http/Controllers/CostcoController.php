@@ -19,4 +19,14 @@ class CostcoController extends Controller
         $table = $database->select('select * from '.$db_name);
         return $table;
     }
+    public function create_row(Request $req, $db_name)
+    {
+        $database = DB::connection('mysql2');
+        $id = $req->id;
+        $name = $req->name;
+        $price = $req->price;
+        $stock = $req->stock;
+        $type = $req->type;
+        $database->insert('insert into ' . $db_name . ' (id, name, price, stock, type) values (?, ?, ?, ?, ?)', [$id, $name, $price, $stock, $type]);
+    }
 }
