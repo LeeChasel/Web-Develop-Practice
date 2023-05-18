@@ -17,7 +17,7 @@ class CostcoController extends Controller
     public function table_index($db_name)
     {
         $database = DB::connection('mysql2');
-        $table = $database->select('select * from '.$db_name);
+        $table = $database->select('select * from ' . $db_name);
         return $table;
     }
 
@@ -30,6 +30,20 @@ class CostcoController extends Controller
         $stock = $req->stock;
         $type = $req->type;
         $database->insert('insert into ' . $db_name . ' (id, name, price, stock, type) values (?, ?, ?, ?, ?)', [$id, $name, $price, $stock, $type]);
+    }
+
+    public function search_id($db_name, $id)
+    {
+        $database = DB::connection('mysql2');
+        $rowData = $database->select('select * from '. $db_name . ' where id = ?', [$id]);
+        return $rowData;
+    }
+
+    public function search_name($db_name, $name)
+    {
+        $database = DB::connection('mysql2');
+        $rowData = $database->select('select * from '. $db_name . ' where name = ?', [$name]);
+        return $rowData;
     }
     
     public function update_row(Request $req, $db_name, $old_id)

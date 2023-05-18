@@ -3,6 +3,7 @@ import { useState } from 'react';
 import useSWR from 'swr'
 import CreateRowBtn from '../../components/costco/createRow-btn';
 import DeleteRowBtn from '../../components/costco/deleteRow-btn';
+import SearchBtn from '../../components/costco/search-btn';
 
 function Data_Table({data})
 {
@@ -71,7 +72,7 @@ function TableRow({rowData, onUpdate, db_name})
         <>
             <td className="text-black bg-zinc-100 border-zinc-300">
                 {isEditable ? (
-                    <input type="number" name="id" min="0" value={updatedRow.id} onChange={handleChange} className="border border-gray-300 rounded p-1 max-w-xs w-full bg-gray-100 text-black"/>):(
+                    <input type="number" name="id" min="0" required value={updatedRow.id} onChange={handleChange} className="border border-gray-300 rounded p-1 max-w-xs w-full bg-gray-100 text-black"/>):(
                     <span>{rowData.id}</span>
                 )}
             </td>
@@ -83,13 +84,13 @@ function TableRow({rowData, onUpdate, db_name})
             </td>
             <td className="text-black bg-zinc-100 border-zinc-300">
                 {isEditable ? (
-                    <input type="number" name="price" min="0" value={updatedRow.price} onChange={handleChange} className="border border-gray-300 rounded p-1 max-w-xs w-full bg-gray-100 text-black"/>):(
+                    <input type="number" name="price" min="0" required value={updatedRow.price} onChange={handleChange} className="border border-gray-300 rounded p-1 max-w-xs w-full bg-gray-100 text-black"/>):(
                     <span>{rowData.price}</span>
                 )}
             </td>
             <td className="text-black bg-zinc-100 border-zinc-300">
                 {isEditable ? (
-                    <input type="number" name="stock" min="0" value={updatedRow.stock} onChange={handleChange} className="border border-gray-300 rounded p-1 max-w-xs w-full bg-gray-100 text-black"/>):(
+                    <input type="number" name="stock" min="0" required value={updatedRow.stock} onChange={handleChange} className="border border-gray-300 rounded p-1 max-w-xs w-full bg-gray-100 text-black"/>):(
                     <span>{rowData.stock}</span>
                 )}
             </td>
@@ -119,8 +120,7 @@ function Home()
         <div className="flex flex-col p-5 gap-2 max-h-full overflow-y-auto">
             <div className="flex justify-between">
                 <button className="btn" onClick={() => router.push('/costco')}>Back</button>
-                <div>aa</div>
-                <div>bb</div>
+                <SearchBtn db_name={router.query.db_name}/>
                 <CreateRowBtn db_name={router.query.db_name}/>
             </div>
             <Data_Table data={data}/>

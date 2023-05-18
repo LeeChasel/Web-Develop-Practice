@@ -5,7 +5,7 @@ function DB_Table({tables})
 {
     const router = useRouter();
     return (
-        <div className="flex justify-center max-h-full py-5 overflow-y-auto">
+        <div className="flex justify-center max-h-full py-5">
             <table className="table w-1/3 h-full bg-gray-100 rounded-lg">
                 <thead>
                 <tr>
@@ -31,7 +31,7 @@ function Home()
     if (error) return <div>Failed to load</div>
     if (!data) return <div>Loading...</div>
     return (    
-        <div className="h-full">
+        <div className="max-h-full overflow-y-auto">
             <DB_Table tables={data}/>
         </div>
     )
