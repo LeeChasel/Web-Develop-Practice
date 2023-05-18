@@ -1,11 +1,25 @@
 import { useRouter } from 'next/router'
+import { useState } from 'react';
 import useSWR from 'swr'
 import CreateRowBtn from '../../components/costco/createRow-btn';
+import DeleteRowBtn from '../../components/costco/deleteRow-btn';
 
 function Data_Table({data})
 {
+    const router = useRouter();
+    const handleUpdate = (id, updatedRow) => {
+        fetch(`http://localhost:80/api/costco/${router.query.db_name}/update/${id}`, {
+            headers: {
+                "Content-Type": "application/json",
+            },
+            method: 'PUT',
+            body: JSON.stringify(updatedRow),
+        })
+        router.reload()
+    }
+
     return (
-        <div className="grow flex justify-center  ">
+        <div className="grow flex justify-center">
             <table className="table w-full bg-gray-100 rounded-lg">
                 <thead>
                 <tr>
@@ -14,21 +28,83 @@ function Data_Table({data})
                     <th className="text-black bg-zinc-100 border-b-2 border-b-zinc-300">Price</th>
                     <th className="text-black bg-zinc-100 border-b-2 border-b-zinc-300">Stock</th>
                     <th className="text-black bg-zinc-100 border-b-2 border-b-zinc-300">Type</th>
+                    <th className="text-black bg-zinc-100 border-b-2 border-b-zinc-300"></th>
                 </tr>
                 </thead>
                 <tbody>
-                {data.map(row => (
-                    <tr key={row.id}>
-                        <td className="text-black bg-zinc-100 border-zinc-300">{row.id}</td>
-                        <td className="text-black bg-zinc-100 border-zinc-300">{row.name}</td>
-                        <td className="text-black bg-zinc-100 border-zinc-300">{row.price}</td>
-                        <td className="text-black bg-zinc-100 border-zinc-300">{row.stock}</td>
-                        <td className="text-black bg-zinc-100 border-zinc-300">{row.type}</td>
+                {data.map(rowData => (
+                    <tr key={rowData.id}>
+                        <TableRow rowData={rowData} onUpdate={handleUpdate} db_name={router.query.db_name}/>
                     </tr>
                 ))}
                 </tbody>
             </table>
         </div>
+    )
+}
+
+function TableRow({rowData, onUpdate, db_name})
+{
+    const [ isEditable, setIsEditable ] = useState(false);
+    const [ updatedRow, setUpdatedRow ] = useState(rowData);
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setUpdatedRow((prevRow) => ({
+          ...prevRow,
+          [name]: value,
+        }));
+    }
+    const handleEdit = () => {
+        if (isEditable)
+        {
+            setUpdatedRow(rowData)
+        }
+        setIsEditable(!isEditable);
+    };
+
+    const handleUpdate = () => {
+        onUpdate(rowData.id, updatedRow);
+    };
+
+    return (
+        <>
+            <td className="text-black bg-zinc-100 border-zinc-300">
+                {isEditable ? (
+                    <input type="number" name="id" min="0" value={updatedRow.id} onChange={handleChange} className="border border-gray-300 rounded p-1 max-w-xs w-full bg-gray-100 text-black"/>):(
+                    <span>{rowData.id}</span>
+                )}
+            </td>
+            <td className="text-black bg-zinc-100 border-zinc-300">
+                {isEditable ? (
+                    <input type="text" name="name" required value={updatedRow.name} onChange={handleChange} className="border border-gray-300 rounded p-1 max-w-xs w-full bg-gray-100 text-black"/>):(
+                    <span>{rowData.name}</span>
+                )}
+            </td>
+            <td className="text-black bg-zinc-100 border-zinc-300">
+                {isEditable ? (
+                    <input type="number" name="price" min="0" value={updatedRow.price} onChange={handleChange} className="border border-gray-300 rounded p-1 max-w-xs w-full bg-gray-100 text-black"/>):(
+                    <span>{rowData.price}</span>
+                )}
+            </td>
+            <td className="text-black bg-zinc-100 border-zinc-300">
+                {isEditable ? (
+                    <input type="number" name="stock" min="0" value={updatedRow.stock} onChange={handleChange} className="border border-gray-300 rounded p-1 max-w-xs w-full bg-gray-100 text-black"/>):(
+                    <span>{rowData.stock}</span>
+                )}
+            </td>
+            <td className="text-black bg-zinc-100 border-zinc-300">
+                {isEditable ? (
+                    <input type="text" name="type" required value={updatedRow.type} onChange={handleChange} className="border border-gray-300 rounded p-1 max-w-xs w-full bg-gray-100 text-black"/>):(
+                    <span>{rowData.type}</span>
+                )}
+            </td>
+            <td className="text-black bg-zinc-100 border-zinc-300 flex gap-1">
+                <button onClick={handleEdit} className="btn btn-sm btn-ghost">{isEditable ? "Cancel" : "Edit"}</button>
+                {isEditable && <button onClick={handleUpdate} className="btn btn-sm btn-ghost">Save</button>}
+                {!isEditable && <DeleteRowBtn db_name={db_name} id={rowData.id}/>}
+            </td>
+        </>
     )
 }
 
@@ -39,9 +115,14 @@ function Home()
     const { data, error } = useSWR('http://localhost/api/costco/' + router.query.db_name + '/index', fetcher)
     if (error) return <div>Failed to load</div>
     if (!data) return <div>Loading...</div>
-    return (    
+    return (
         <div className="flex flex-col p-5 gap-2 max-h-full overflow-y-auto">
-            <CreateRowBtn db_name={router.query.db_name}/>
+            <div className="flex justify-between">
+                <button className="btn" onClick={() => router.push('/costco')}>Back</button>
+                <div>aa</div>
+                <div>bb</div>
+                <CreateRowBtn db_name={router.query.db_name}/>
+            </div>
             <Data_Table data={data}/>
         </div>
     )

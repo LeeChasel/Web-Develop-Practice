@@ -1,0 +1,17 @@
+import { useRouter } from 'next/router'
+
+function DeleteRowBtn({db_name, id})
+{
+    const router = useRouter();
+    const handleClick = () => {
+        fetch(`http://localhost:80/api/costco/${db_name}/delete/${id}`, {
+            method: 'DELETE',
+        })
+        router.reload()
+    }
+    return (
+        <button className="btn btn-sm btn-ghost" onClick={handleClick}>Delete</button>
+    )
+}
+
+export default DeleteRowBtn

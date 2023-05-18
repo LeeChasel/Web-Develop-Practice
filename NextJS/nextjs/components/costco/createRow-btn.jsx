@@ -17,7 +17,7 @@ function CreateRowBtn({db_name})
         })
     }
     return (
-        <div className="flex justify-end">
+        <>
             <button className="btn" onClick={() => setIsOpen(true)}>Create</button>
 
             <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="w-full relative z-50">
@@ -63,7 +63,7 @@ function CreateRowBtn({db_name})
                     </Dialog.Panel>
                 </div>
             </Dialog>
-        </div>
+        </>
     )
 }
 

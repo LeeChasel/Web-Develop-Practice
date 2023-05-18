@@ -28,3 +28,5 @@ Route::patch('userinfo/updateData/{id}', [UserinfoController::class, 'updateData
 Route::get('costco/index', [CostcoController::class, 'tables_index']);
 Route::get('costco/{db_name}/index', [CostcoController::class, 'table_index']);
 Route::post('costco/{db_name}/create', [CostcoController::class, 'create_row']);
+Route::put('costco/{db_name}/update/{old_id}', [CostcoController::class, 'update_row']);
+Route::delete('costco/{db_name}/delete/{id}', [CostcoController::class, 'delete_row']);
