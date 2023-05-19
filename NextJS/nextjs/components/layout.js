@@ -12,10 +12,10 @@ function Layout({children})
             </Head>
             <Sidebar/>
             <main>
-                <div className="h-screen flex bg-rose-300 py-14">
-                  <div className="bg-amber-100 w-full flex justify-center">
+                <div className="h-screen flex bg-zinc-400 py-14">
+                  <div className="w-full flex justify-center">
                     {/* <div className="bg-emerald-200 w-4/5 relative"> */}
-                    <div className="bg-emerald-200 w-full relative">
+                    <div className="bg-zinc-300 w-full relative">
                       {children}
                     </div>
                   </div>

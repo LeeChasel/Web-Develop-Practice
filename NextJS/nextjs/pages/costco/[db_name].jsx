@@ -119,7 +119,7 @@ function Home()
     return (
         <div className="flex flex-col p-5 gap-2 max-h-full overflow-y-auto">
             <div className="flex justify-between">
-                <button className="btn" onClick={() => router.push('/costco')}>Back</button>
+                <button className="btn btn-outline text-black" onClick={() => router.push('/costco')}>Back</button>
                 <SearchBtn db_name={router.query.db_name}/>
                 <CreateRowBtn db_name={router.query.db_name}/>
             </div>

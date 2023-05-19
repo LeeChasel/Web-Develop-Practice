@@ -9,7 +9,7 @@ function Sidebar()
             <Disclosure.Button className="ui-open:translate-x-56 absolute top-2 left-5 inline-flex items-center justify-center rounded-md p-2 peer text-gray-800 hover:bg-gray-900 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white group">
             <Bars3Icon className="h-6 w-6 block md-hidden" aria-hidden="true"/>
           </Disclosure.Button>
-          <Disclosure.Panel className="p-6 w-60 h-screen bg-indigo-400 z-20 fixed top-0 -left-96 lg:left-0 lg:w-60 peer-focus:left-0 peer:transition ease-out delay-150 duration-200">
+          <Disclosure.Panel className="p-6 w-60 h-screen bg-red-300 z-20 fixed top-0 -left-96 lg:left-0 lg:w-60 peer-focus:left-0 peer:transition ease-out delay-150 duration-200">
           {({close}) => (
             <div className="flex flex-col item-center text-center h-screen relative">
             <h1 className="font-bold text-black border-b border-gray-100 w-full pb-4">

@@ -10,7 +10,7 @@ function SearchBtn({db_name})
     return (
         <div className="form-control flex-row">
             <label className="label">
-                <span className="label-text text-base">Id (number only) or Name</span>
+                <span className="label-text text-base text-black">Id (number only) or Name</span>
             </label>  
             <div className="input-group">
                 <input type="text" id="q" className="input input-bordered bg-gray-100 text-black" />
