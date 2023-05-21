@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 
-function CreateRowBtn({db_name})
+function CreateRowBtn({table_name})
 {
     const [ isOpen, setIsOpen ] = useState(false);
     const handleSubmit = (e) => {
         const formData = new FormData(e.target);
         // const formJson = Object.fromEntries(formData.entries());
-        fetch(`http://localhost:80/api/costco/${db_name}/create`, {
+        fetch(`http://localhost:80/api/costco/${table_name}/create`, {
             // headers: {
             //     "Content-Type": "application/json",
             // },

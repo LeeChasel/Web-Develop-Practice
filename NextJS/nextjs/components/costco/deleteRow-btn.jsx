@@ -1,10 +1,10 @@
 import { useRouter } from 'next/router'
 
-function DeleteRowBtn({db_name, id})
+function DeleteRowBtn({table_name, id})
 {
     const router = useRouter();
     const handleClick = () => {
-        fetch(`http://localhost:80/api/costco/${db_name}/delete/${id}`, {
+        fetch(`http://localhost:80/api/costco/${table_name}/delete/${id}`, {
             method: 'DELETE',
         })
         router.reload()

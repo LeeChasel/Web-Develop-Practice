@@ -37,7 +37,7 @@ function Search()
     const router = useRouter()
     const q_text = router.query.q;
 
-    const apiEndpoint = isNaN(q_text) ? `http://localhost/api/costco/${router.query.db_name}/search_name/${q_text}` : `http://localhost/api/costco/${router.query.db_name}/search_id/${q_text}` 
+    const apiEndpoint = isNaN(q_text) ? `http://localhost/api/costco/${router.query.table_name}/search_name/${q_text}` : `http://localhost/api/costco/${router.query.table_name}/search_id/${q_text}` 
     const { data, error } = useSWR(apiEndpoint, fetcher)
     if (error) return <div>Failed to load</div>
     if (!data) return <div>Loading...</div>

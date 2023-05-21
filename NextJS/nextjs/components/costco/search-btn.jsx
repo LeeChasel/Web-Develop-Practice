@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router';
 
-function SearchBtn({db_name})
+function SearchBtn({table_name})
 {
     const router = useRouter();
     const handleClick = () => {
         const q = document.getElementById('q').value
-        router.push(`/costco/${db_name}/search?q=${q}`)
+        router.push(`/costco/${table_name}/search?q=${q}`)
     }
     return (
         <div className="form-control flex-row">

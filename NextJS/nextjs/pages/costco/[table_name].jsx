@@ -9,7 +9,7 @@ function Data_Table({data})
 {
     const router = useRouter();
     const handleUpdate = (id, updatedRow) => {
-        fetch(`http://localhost:80/api/costco/${router.query.db_name}/update/${id}`, {
+        fetch(`http://localhost:80/api/costco/${router.query.table_name}/update/${id}`, {
             headers: {
                 "Content-Type": "application/json",
             },
@@ -35,7 +35,7 @@ function Data_Table({data})
                 <tbody>
                 {data.map(rowData => (
                     <tr key={rowData.id}>
-                        <TableRow rowData={rowData} onUpdate={handleUpdate} db_name={router.query.db_name}/>
+                        <TableRow rowData={rowData} onUpdate={handleUpdate} table_name={router.query.table_name}/>
                     </tr>
                 ))}
                 </tbody>
@@ -44,7 +44,7 @@ function Data_Table({data})
     )
 }
 
-function TableRow({rowData, onUpdate, db_name})
+function TableRow({rowData, onUpdate, table_name})
 {
     const [ isEditable, setIsEditable ] = useState(false);
     const [ updatedRow, setUpdatedRow ] = useState(rowData);
@@ -103,7 +103,7 @@ function TableRow({rowData, onUpdate, db_name})
             <td className="text-black bg-zinc-100 border-zinc-300 flex gap-1">
                 <button onClick={handleEdit} className="btn btn-sm btn-ghost">{isEditable ? "Cancel" : "Edit"}</button>
                 {isEditable && <button onClick={handleUpdate} className="btn btn-sm btn-ghost">Save</button>}
-                {!isEditable && <DeleteRowBtn db_name={db_name} id={rowData.id}/>}
+                {!isEditable && <DeleteRowBtn table_name={table_name} id={rowData.id}/>}
             </td>
         </>
     )
@@ -113,15 +113,15 @@ function Home()
 {
     const router = useRouter();
     const fetcher = (...args) => fetch(...args).then(res => res.json())
-    const { data, error } = useSWR('http://localhost/api/costco/' + router.query.db_name + '/index', fetcher)
+    const { data, error } = useSWR('http://localhost/api/costco/' + router.query.table_name + '/index', fetcher)
     if (error) return <div>Failed to load</div>
     if (!data) return <div>Loading...</div>
     return (
         <div className="flex flex-col p-5 gap-2 max-h-full overflow-y-auto">
             <div className="flex justify-between">
                 <button className="btn btn-outline text-black" onClick={() => router.push('/costco')}>Back</button>
-                <SearchBtn db_name={router.query.db_name}/>
-                <CreateRowBtn db_name={router.query.db_name}/>
+                <SearchBtn table_name={router.query.table_name}/>
+                <CreateRowBtn table_name={router.query.table_name}/>
             </div>
             <Data_Table data={data}/>
         </div>

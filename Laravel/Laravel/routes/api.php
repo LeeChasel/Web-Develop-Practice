@@ -26,9 +26,9 @@ Route::delete('userinfo/delete/{id}', [UserinfoController::class, 'delete']);
 Route::patch('userinfo/updateData/{id}', [UserinfoController::class, 'updateData']);
 
 Route::get('costco/index', [CostcoController::class, 'tables_index']);
-Route::get('costco/{db_name}/index', [CostcoController::class, 'table_index']);
-Route::post('costco/{db_name}/create', [CostcoController::class, 'create_row']);
-Route::get('costco/{db_name}/search_id/{id}', [CostcoController::class, 'search_id']);
-Route::get('costco/{db_name}/search_name/{name}', [CostcoController::class, 'search_name']);
-Route::put('costco/{db_name}/update/{old_id}', [CostcoController::class, 'update_row']);
-Route::delete('costco/{db_name}/delete/{id}', [CostcoController::class, 'delete_row']);
+Route::get('costco/{table_name}/index', [CostcoController::class, 'table_index']);
+Route::post('costco/{table_name}/create', [CostcoController::class, 'create_row']);
+Route::get('costco/{table_name}/search_id/{id}', [CostcoController::class, 'search_id']);
+Route::get('costco/{table_name}/search_name/{name}', [CostcoController::class, 'search_name']);
+Route::put('costco/{table_name}/update/{old_id}', [CostcoController::class, 'update_row']);
+Route::delete('costco/{table_name}/delete/{id}', [CostcoController::class, 'delete_row']);
