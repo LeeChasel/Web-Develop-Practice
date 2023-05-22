@@ -45,7 +45,7 @@ function Search()
     return (
         <div className="flex flex-col p-5 gap-6 max-h-full overflow-y-auto">
             <div className="flex  items-center">
-                <button className="btn" onClick={() => router.back()}>Back</button>
+                <button className="btn btn-outline text-black" onClick={() => router.back()}>Back</button>
                 <h2 className="text-center text-black font-bold	text-lg basis-full">You're searching: <span className="underline underline-offset-2 text-blue-600">{q_text}</span></h2>
             </div>
             <Data_Table data={data}/>
